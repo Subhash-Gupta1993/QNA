@@ -1,0 +1,9 @@
+<div class="container">
+<h2>Your Feeds: </h2>
+  <%= link_to 'Ask', new_question_question_and_answer_index_path, class: "btn btn-outline-primary float-right" %>
+  <!-- <a href="" class="btn btn-outline-primary float-right">Ask</a> -->
+  <p style="margin-top: 15px;"><strong>Your Feeds:</strong> </p>
+  <div id="feeds">
+  <%=render "feeds"%>
+  </div>
+  </div>

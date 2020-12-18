@@ -1,0 +1,11 @@
+<%if current_user.present?%>
+	<%if @error%>
+		alert('<%=@message%>')
+	<%else%>
+	    var html = '<%= j render :partial => "home/feeds" %>';
+		$('#feeds').empty();
+		$('#feeds').html(html);
+	<%end%>
+<%else%>
+	window.location = "/users/sign_in"
+<%end%>

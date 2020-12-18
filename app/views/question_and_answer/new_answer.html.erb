@@ -1,0 +1,16 @@
+
+<article class="card-body mx-auto" style="max-width: 400px;">
+<h4 class="card-title mt-3 text-center">Your Answer</h4>
+<%= form_for :answer, url: create_answer_question_and_answer_index_path,html: { multipart: true, id: "new_inv"}  do |f| %>
+  <div class="form-group input-group">
+     <%= f.text_field :answer, class: 'form-control',placeholder: "Your thought.", required: true %>
+  </div>  
+  <%= f.hidden_field :id, value: @question.id, required: true %>
+
+  <div class="actions form-group">
+    <%= f.submit "Create" , class: 'btn btn-primary btn-block'%>
+  </div>
+<% end %>
+
+</article>
+

@@ -1,0 +1,36 @@
+<%@questions.each do |quest|%>
+  <div id="accordion" style="margin-top: 15px;">
+    <div class="card">
+      
+        <div class="card-body">
+          <%=quest.question%>
+        </div>
+    </div>
+    <%quest.answers.each do |ans|%>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#ans_<%=ans.id%>">
+        Answer By: <%=ans.try(:user).try(:name) || "Anonymous"%>, at: <%=ans.created_at.strftime("%F %H:%M:%S")%>, Click To See
+      </a>
+      </div>
+      <div id="ans_<%=ans.id%>" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+         <%=ans.answer%>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+   <div class="row text-center" style="margin-top: 10px;">
+    <div class="col-6">
+      <%=quest.likes.count%>
+      <%= link_to 'Hit Like', new_like_question_and_answer_path(quest.id), class: "btn btn-outline-warning", remote: true %>
+    </div>
+    <div class="col-6">
+      <%= link_to 'Answer', new_answer_question_and_answer_path(quest.id), class: "btn btn-outline-warning" %>
+    </div>
+    <!-- <div class="col-4">
+      <button type="button" class="btn btn-outline-primary  ">Right</button>
+    </div> -->
+  </div>
+  <%end%>

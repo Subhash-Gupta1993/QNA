@@ -1,0 +1,15 @@
+
+<article class="card-body mx-auto" style="max-width: 400px;">
+<h4 class="card-title mt-3 text-center">New Question</h4>
+<%= form_for :question, url: create_question_question_and_answer_index_path,html: { multipart: true, id: "new_inv"}  do |f| %>
+  <div class="form-group input-group">
+     <%= f.text_field :question, class: 'form-control',placeholder: "Ask Here", required: true %>
+  </div>  
+
+  <div class="actions form-group">
+    <%= f.submit "Create" , class: 'btn btn-primary btn-block'%>
+  </div>
+<% end %>
+
+</article>
+
